@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+    <style>
+        body {
+            margin-top: 200px;
+            margin-left: 700px;
+            text-align: center;
+            background-image: url("https://cdn.pixabay.com/photo/2015/11/03/08/56/question-mark-1019820_1280.jpg");
+        }
+
+        h2 {
+            color: blue;
+            font-size: 50px;
+        }
+
+        h3 {
+            color: #ff0066;
+            font-size: 35px;
+        }
+
+        input {
+            border-radius: 50px;
+            font-size: 25px;
+            width:150px;
+        }
+
+        p {
+            color: black;
+            font-size: 25px;
+        }
+
+        button {
+            color: aliceblue;
+            height: 30px;
+            width: 80px;
+            background-color:forestgreen;
+            border-radius:20px;
+        }
+       
+    </style>
+
+    
+<body>
+    <h2> Guess The Number</h2>
+    <h3> Guess the number between 1 to 100</h3>
+    <input type="number" id="guessInput" max="100"><br>
+    <br>
+    <button id="guessbtn"> Sumbit</button>
+    <p id="msg"></p>
+</body>
+<script>
+var randomNumber=Math.floor(Math.random()*100)+1;
+var attempts=0;
+document.getElementById("guessbtn").addEventListener('click', function(){
+	 var guess=parseInt(document.getElementById("guessInput").value);
+	 attempts++;
+	 if(guess===randomNumber){
+	 	displaymsg("Congratulations! You guessed the Number in " + attempts+'attempt')
+	 	 document.getElementById("guessbtn").disabled=true;
+	 }
+     else if (guess < randomNumber) {
+         displaymsg("Too low!try a higher number.")
+	 }
+     else{
+         displaymsg("Too high!try a lower number.")
+}
+});
+function displaymsg(k){
+	 document.getElementById("msg").textContent=k;
+}
+
+</script>
+</html>
